@@ -1,4 +1,3 @@
-import Image from "next/image";
 import PlanetInfo from "@/app/components/PlanetInfo";
 
 export default function Home() {

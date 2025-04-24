@@ -1,7 +1,17 @@
+'use client'
 import Image from "next/image"
 import PlanetImage from "../PlanetImage"
+import { moon_and_planets } from "@/app/data/data"
+import { useState } from "react"
 
 export default function PlanteInfo() {
+
+    const [planet, setPlanet] = useState<string>("Earth")
+
+    function updatePlanet(data : string) {
+        setPlanet(data)
+    }
+
     return (
         <div className="w-full flex justify-between">
             <div className="w-[30%] flex flex-col gap-12">
@@ -18,20 +28,20 @@ export default function PlanteInfo() {
             </div>
             <div className="">
                 <Image
-                    src="/Earth.png"
+                    src={`/${planet}.png`}
                     className="drop-shadow-[8px_20px_25px_rgba(0,0,0,0.95)]"
-                    alt="Earth"
+                    alt={planet}
                     width={500}
                     height={500} />
             </div>
-            <div className="flex flex-col p-2 gap-4 justify-center rounded-4xl bg-[#ffffff30] backdrop-blur-xs">
-                <PlanetImage />
-                <PlanetImage />
-                <PlanetImage />
-                <PlanetImage />
-                <PlanetImage />
-                <PlanetImage />
-                <PlanetImage />
+            <div className="flex flex-col px-[12px] py-[16px] gap-4 justify-center rounded-full bg-[#ffffff15] backdrop-blur-xs shadow-[6px_5px_20px_rgba(0,0,0,0.4)]">
+                {
+                    moon_and_planets.map((item) => {
+                        return (
+                            <PlanetImage name={item} updatePlanet={updatePlanet} />
+                        )
+                    })
+                }
             </div>
         </div>
     )
