@@ -3,7 +3,6 @@ import Image from "next/image";
 import PlanetImage from "../PlanetImage";
 import { moon_and_planets } from "@/app/data/data";
 import { useState } from "react";
-import Range from "../Range";
 import RangeInfo from "../RangeInfo";
 
 export interface PlanetObject {
