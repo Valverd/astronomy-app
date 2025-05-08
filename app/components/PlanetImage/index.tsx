@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PlanetObject } from "../PlanetInfo";
+import { PlanetObject } from "@/app/page";
 
 interface PlanetImageProps {
     planet: PlanetObject

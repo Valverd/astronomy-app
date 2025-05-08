@@ -18,35 +18,35 @@
     background-size: cover;
   }
 
-  .mercurio::-webkit-slider-thumb {
+  .Mercury::-webkit-slider-thumb {
     background-image: url('/Mercúrio.png');
   }
 
-  .venus::-webkit-slider-thumb {
+  .Venus::-webkit-slider-thumb {
     background-image: url('/Vênus.png');
   }
 
-  .terra::-webkit-slider-thumb {
+  .Earth::-webkit-slider-thumb {
     background-image: url('/Terra.png');
   }
 
-  .marte::-webkit-slider-thumb {
+  .Mars::-webkit-slider-thumb {
     background-image: url('/Marte.png');
   }
 
-  .jupiter::-webkit-slider-thumb {
+  .Jupiter::-webkit-slider-thumb {
     background-image: url('/Júpiter.png');
   }
 
-  .saturno::-webkit-slider-thumb {
+  .Saturn::-webkit-slider-thumb {
     background-image: url('/Saturno.png');
   }
 
-  .urano::-webkit-slider-thumb {
+  .Uranus::-webkit-slider-thumb {
     background-image: url('/Urano.png');
   }
 
-  .netuno::-webkit-slider-thumb {
+  .Neptune::-webkit-slider-thumb {
     background-image: url('/Netuno.png');
   }
 }
