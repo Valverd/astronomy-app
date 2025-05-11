@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import { GeoVector, Body } from "astronomy-engine";
+import { GeoVector, Body, HelioVector } from "astronomy-engine";
 
 export async function GET(request: Request, { params }: { params: { planet: string } }) {
     const { planet } = await params
-    const formatted_planet = planet.charAt(0).toUpperCase() + planet.slice(1)
+    console.log(planet)
 
     // Body é um Enum, então ao adicionar o keyof estou dizendo para pegar a chave do tipo Enum Body, no caso "Mars" | "Venus" | "Saturn", etc.
     // Body[params.id as keyof typeof Body]
-    const planet_distance = GeoVector(Body[formatted_planet as keyof typeof Body], new Date(), true)
+    const planet_distance = HelioVector(Body[planet as keyof typeof Body], new Date())
 
     const AU_distance = Math.sqrt((planet_distance.x ** 2 + planet_distance.y ** 2 + planet_distance.z ** 2))
 

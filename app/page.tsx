@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <section className="flex flex-col gap-[100px] justify-center items-center">
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex justify-between">
         <div className="w-[30%] flex flex-col gap-8 backdrop-blur-xs bg-[#ffffff15] p-6 rounded-2xl">
           <div>
             <h1 className="text-indigo-300 font-bold text-4xl mb-2">
