@@ -26,7 +26,7 @@ export default function Home() {
       <div className="w-full flex justify-between">
         <div className="w-[30%] flex flex-col gap-8 backdrop-blur-xs bg-[#ffffff15] p-6 rounded-2xl">
           <div>
-            <h1 className="text-indigo-300 font-bold text-4xl mb-2">
+            <h1 className=" font-bold text-4xl mb-2">
               {planet?.name}
             </h1>
             <hr className="h-px bg-white w-full rounded-lg" />
