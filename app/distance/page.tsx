@@ -1,10 +1,11 @@
 "use client";
-import PlanetImage from "@/app/components/PlanetImage";
 import { moon_and_planets } from "@/app/data/data";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AnimatedNumber from "../components/AnimatedNumber";
 import AnimatedPlanet from "../components/AnimatedPlanet";
+import PlanetsBar from "../components/PlanetsBar";
+import { motion } from 'framer-motion'
 
 export interface PlanetObject {
     name: string;
@@ -19,6 +20,7 @@ export interface PlanetObject {
 export default function Distance() {
     const [planet, setPlanet] = useState<PlanetObject>(moon_and_planets[2]);
     const [distance, setDistance] = useState<number>(0)
+    const carousel = useRef(null)
 
     function updatePlanet(planet: PlanetObject) {
         setPlanet(planet)
@@ -41,25 +43,24 @@ export default function Distance() {
 
 
     return (
-        <section className="h-[calc(100vh-192px)] flex flex-col justify-between items-center">
+        <section className="flex flex-col justify-between items-center gap-10">
 
-            <div className="flex justify-between items-center w-full">
+            <div className="flex mb-14 flex-col justify-between items-center gap-14 w-full xl:flex-row">
                 <Image src={"/Sol.png"} className="drop-shadow-[0_0_30px_rgba(250,168,7,0.6)]" width={500} height={500} alt="Sol" />
-                <div className="flex flex-col gap-2">
-                    <h1 className="text-2xl">Sol - {planet.name}</h1>
-                    <p className="text-[10px]">*Proporções apenas para Planetas/Terra</p>
+                <div className="md:text-start md:text-2xl text-center flex flex-col gap-2">
+                    <h1>Sol - {planet.name}</h1>
                     <AnimatedNumber value={distance * 1000} />
+                    <p className="text-xs">*Proporções apenas para Planetas/Terra</p>
                 </div>
                 <AnimatedPlanet key={planet.name} planet={planet} />
             </div>
 
-            <div className="flex w-[40%] p-4 justify-around rounded-full bg-[#ffffff15] backdrop-blur-xs shadow-[6px_5px_20px_rgba(0,0,0,0.4)]">
-                {moon_and_planets.map((item, i) => {
-                    return (
-                        <PlanetImage planet={item} updatePlanet={updatePlanet} key={i} />
-                    );
-                })}
+            <div
+                className="flex w-full md:gap-0 md:w-xl p-4 rounded-full bg-bar backdrop-blur-xs shadow-bar overflow-hidden"
+            >
+                <PlanetsBar updatePlanet={updatePlanet} />
             </div>
+
         </section>
     );
 }

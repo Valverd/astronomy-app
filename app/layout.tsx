@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from 'next/font/google'
 import Nav from "@/app/components/Nav";
+import Footer from "./components/Footer";
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
@@ -20,12 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-[url('/space.jpg')] bg-cover min-h-screen ${poppins.className} text-white`}
+        className={`bg-[url('/space.jpg')] bg-no-repeat flex flex-col min-h-screen ${poppins.className} text-white`}
       >
         <Nav />
-        <main className="max-w-[1440px] m-auto p-6">
+        <main className="flex-1 max-w-[1440px] w-full m-auto px-6 py-10">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
