@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import AnimatedNumber from "../components/AnimatedNumber";
 import AnimatedPlanet from "../components/AnimatedPlanet";
 import PlanetsBar from "../components/PlanetsBar";
-import { motion } from 'framer-motion'
 
 export interface PlanetObject {
     name: string;
@@ -20,7 +19,6 @@ export interface PlanetObject {
 export default function Distance() {
     const [planet, setPlanet] = useState<PlanetObject>(moon_and_planets[2]);
     const [distance, setDistance] = useState<number>(0)
-    const carousel = useRef(null)
 
     function updatePlanet(planet: PlanetObject) {
         setPlanet(planet)
