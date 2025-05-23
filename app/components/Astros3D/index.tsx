@@ -55,6 +55,7 @@ export default function Astros3D({ planet }: { planet: string }) {
 
         function animate() {
             requestAnimationFrame(animate)
+            astro.rotation.y += 0.001
             controls.update()
             renderer.render(scene, camera)
 
