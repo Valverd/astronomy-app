@@ -2,11 +2,14 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-export default function Astros3D() {
+export default function Astros3D({ planet }: { planet: string }) {
     const container = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
         if (!container.current) return
+
+        const duplicated_canvas = container.current.querySelector('canvas')
+        if (duplicated_canvas) container.current.removeChild(duplicated_canvas)
 
         const scene = new THREE.Scene()
 
@@ -28,11 +31,11 @@ export default function Astros3D() {
         astro.castShadow = true
         scene.add(astro)
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.15)
         scene.add(ambientLight)
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
-        directionalLight.position.set(5, 5, 5)
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7)
+        directionalLight.position.set(5, 1, 5)
         scene.add(directionalLight)
 
         const controls = new OrbitControls(camera, renderer.domElement)
@@ -41,10 +44,14 @@ export default function Astros3D() {
 
         renderer.render(scene, camera)
 
-        textureLoader.load('EarthTexture.jpg', (texture) => {
+        textureLoader.load(`${planet}.jpg`, (texture) => {
             material.map = texture
             material.needsUpdate = true
         })
+
+        // textureLoader.load('earthcloudmaptrans.jpg', (texture) => {
+        //     material.bumpMap = texture
+        // })
 
         function animate() {
             requestAnimationFrame(animate)
@@ -55,25 +62,32 @@ export default function Astros3D() {
 
         animate()
 
-        function handleResize() {
+        const resizeObserver = new ResizeObserver(() => {
             if (!container.current) return
             renderer.setSize(container.current.clientWidth, container.current.clientHeight)
             camera.aspect = container.current.clientWidth / container.current.clientHeight
             camera.updateProjectionMatrix()
+            console.log("teste")
 
             controls.update()
             renderer.render(scene, camera)
-        }
+        })
 
-        window.addEventListener('resize', handleResize)
+        resizeObserver.observe(container.current)
 
         return () => {
-            window.removeEventListener('resize', handleResize)
-            container.current?.removeChild(renderer.domElement)
-            controls.dispose()
-            renderer.dispose()
-        }
-    }, [])
 
-    return <div ref={container} className="lg:w-[33%]" />
+            resizeObserver.disconnect()
+            if (container.current) {
+                const duplicated_canvas = container.current.querySelector('canvas')
+                if (duplicated_canvas) container.current.removeChild(duplicated_canvas)
+
+            }
+
+            scene.clear()
+        }
+
+    }, [planet])
+
+    return <div ref={container} className='w-full h-[300px] lg:w-[40%] lg:h-auto' />
 }

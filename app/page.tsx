@@ -56,7 +56,7 @@ export default function Home() {
             height={500}
           />
         </div> */}
-        <Astros3D />
+        <Astros3D planet={planet.id} />
 
         <div className="hidden lg:flex flex-col p-4 h-full gap-4 justify-center rounded-full bg-bar backdrop-blur-xs shadow-bar">
           {moon_and_planets.map((item, i) => {
