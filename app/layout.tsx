@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-[url('/space.jpg')] bg-no-repeat flex flex-col min-h-screen ${poppins.className} text-white`}
+        className={`bg-[url('/milky_way.jpg')]  flex flex-col min-h-screen ${poppins.className} text-white`}
       >
         <Nav />
         <main className="flex-1 max-w-[1440px] w-full m-auto px-6 py-10">
