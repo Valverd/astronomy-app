@@ -1,9 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { IoPlanetOutline } from "react-icons/io5";
 import { TbRulerMeasure } from "react-icons/tb";
 import { motion, AnimatePresence } from 'framer-motion'
+import { IconType } from "react-icons";
 
 
 interface MenuModalProps {
@@ -12,12 +13,33 @@ interface MenuModalProps {
 }
 
 export default function MenuModal({ showModal, setShowModal }: MenuModalProps) {
+
+    const modalRef = useRef<HTMLUListElement | null>(null)
+
+
+    useEffect(() => {
+
+        function handleClickOut(event: MouseEvent) {
+            if (modalRef.current != event.target && showModal) {
+                setShowModal(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOut)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOut)
+        }
+
+    }, [showModal])
+
     return (
         <AnimatePresence>
             {
                 showModal &&
                 <motion.ul
-                    className="fixed top-0 right-0 h-screen bg-[#0a113b] list-none z-50"
+                    className="fixed top-0 right-0 h-screen bg-[#0e0e0e] list-none z-50"
+                    ref={modalRef}
                     animate={{ x: 0, opacity: 1 }}
                     initial={{ x: '100%', opacity: 0 }}
                     exit={{ x: '100%', opacity: 0 }}

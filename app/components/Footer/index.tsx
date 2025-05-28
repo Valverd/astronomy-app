@@ -8,8 +8,8 @@ export default function Footer() {
             <div className="flex justify-between items-center max-w-[1440px] m-auto">
                 <h1>Powered by Renan</h1>
                 <div className="flex items-center gap-4">
-                    <Link href={'https://github.com/Valverd'} target="_blank"><FaGithub size={25} /></Link>
-                    <Link href={'https://www.linkedin.com/in/renan-valverde/'} target="_blank"><FaLinkedinIn size={25} /></Link>
+                    <Link href={'https://github.com/Valverd'} target="_blank" className="hover:text-[#ffffffa8] transition duration-300"><FaGithub size={25} /></Link>
+                    <Link href={'https://www.linkedin.com/in/renan-valverde/'} target="_blank" className="hover:text-[#ffffffa8] transition duration-300"><FaLinkedinIn size={25} /></Link>
                 </div>
             </div>
         </footer>

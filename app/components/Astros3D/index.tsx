@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from 'three/examples/jsm/Addons.js'
 
 export default function Astros3D({ planet }: { planet: string }) {
     const container = useRef<HTMLDivElement | null>(null)
@@ -13,8 +13,8 @@ export default function Astros3D({ planet }: { planet: string }) {
         if (duplicated_canvas) container.current.removeChild(duplicated_canvas)
 
         const scene = new THREE.Scene()
-        const camera = new THREE.PerspectiveCamera(75, container.current.clientWidth / container.current.clientHeight, 0.1, 1000)
-        camera.position.z = 2
+        const camera = new THREE.PerspectiveCamera(50, container.current.clientWidth / container.current.clientHeight, 0.1, 1000)
+        camera.position.z = 3
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
         renderer.setSize(container.current.clientWidth, container.current.clientHeight)
@@ -26,7 +26,7 @@ export default function Astros3D({ planet }: { planet: string }) {
         container.current.appendChild(renderer.domElement)
 
         const textureLoader = new THREE.TextureLoader()
-        const planet_texture = textureLoader.load(`${planet}.jpg`)
+        const planet_texture = textureLoader.load(`${planet}-texture.jpg`)
 
         const geometry = new THREE.SphereGeometry(1, 64, 64)
 
@@ -78,7 +78,11 @@ export default function Astros3D({ planet }: { planet: string }) {
         astro.receiveShadow = true
         scene.add(astro)
 
-        if (planet == 'Saturn') scene.add(rings)
+        if (planet == 'Saturn') {
+            scene.add(rings)
+            camera.position.z = 4.6
+
+        }
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
         scene.add(ambientLight)
@@ -92,6 +96,7 @@ export default function Astros3D({ planet }: { planet: string }) {
 
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableDamping = true
+        controls.maxTargetRadius = 0
         controls.rotateSpeed = 0.4
 
         function animate() {

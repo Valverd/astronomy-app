@@ -47,15 +47,7 @@ export default function Home() {
             })}
           </ul>
         </div>
-        {/* <div>
-          <Image
-            src={`/${planet?.name}.png`}
-            className="drop-shadow-[8px_20px_25px_rgba(0,0,0,0.95)]"
-            alt={planet?.name || "Imagem sem descrição"}
-            width={500}
-            height={500}
-          />
-        </div> */}
+        
         <Astros3D planet={planet.id} />
 
         <div className="hidden lg:flex flex-col p-4 h-full gap-4 justify-center rounded-full bg-bar backdrop-blur-xs shadow-bar">

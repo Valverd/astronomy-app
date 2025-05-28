@@ -34,7 +34,7 @@ export default function AnimatedPlanet({ planet }: AnimatedPlanetProps) {
                 duration: 1
             }}
         >
-            <Image src={`/${planet.name}.png`} width={20 * astroSize(planet.id)} height={20 * astroSize(planet.id)} alt={`${planet.name}`} className="drop-shadow-[1px_1px_20px_rgba(0,0,0,0.70)] m-4" />
+            <Image src={`/${planet.id}.png`} width={20 * astroSize(planet.id)} height={20 * astroSize(planet.id)} alt={`${planet.name}`} className="drop-shadow-[1px_1px_20px_rgba(0,0,0,0.70)] m-4" />
         </motion.span>
     );
 }
