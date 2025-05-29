@@ -1,9 +1,11 @@
 import { NextResponse, NextRequest } from "next/server";
 import { Body, HelioVector } from "astronomy-engine";
 
-export async function GET(request: NextRequest, { params }: { params: {planet: string} }) {
-    const { planet } = await params
-    console.log(planet)
+export async function GET(request: NextRequest, context: { params: { planet: string } }) {
+
+    const { planet } = context.params
+
+    if (!planet) return NextResponse.json({ error: "Planeta Inválido" }, { status: 404 })
 
     // Body é um Enum, então ao adicionar o keyof estou dizendo para pegar a chave do tipo Enum Body, no caso "Mars" | "Venus" | "Saturn", etc.
     // Body[params.id as keyof typeof Body]
