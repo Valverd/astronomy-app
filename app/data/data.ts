@@ -5,8 +5,8 @@ export const moon_and_planets = [
         topics: ["Tipo: Rochoso", "Diâmetro: 4.880 km", "Temperaturas: -173°C (Mín) 427° (Máx)", "Temperatura Média: 167°C", "Luas: Nenhuma", "Curiosidade: Da superfície de Mercúrio, o Sol pareceria mais de três vezes maior do que quando visto da Terra, e a luz solar seria até sete vezes mais brilhante."],
         id: "Mercury",
         type: "planet",
-        í: 82_500_000,
-        máx: 1_446_000_000
+        min: 82_500_000,
+        max: 1_446_000_000
     },
     {
         name: "Vênus",
