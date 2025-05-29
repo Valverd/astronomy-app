@@ -1,9 +1,16 @@
 import { NextResponse, NextRequest } from "next/server";
 import { Body, HelioVector } from "astronomy-engine";
 
-export async function GET(request: NextRequest, context: { params: { planet: string } }) {
+// interface paramsProps {
+//     params: {
+//         planet: string
+//     }
+// }
+// foi necessário passar o any para o build da aplicação passar sem erros.
 
-    const { planet } = context.params
+export async function GET(request: NextRequest, { params }: any ) {
+
+    const { planet } = await params
 
     if (!planet) return NextResponse.json({ error: "Planeta Inválido" }, { status: 404 })
 
