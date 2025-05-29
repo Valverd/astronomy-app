@@ -20,7 +20,7 @@ export const moon_and_planets = [
     {
         name: "Terra",
         description: "Terra é o terceiro planeta e o único conhecido até hoje que abriga vida. Possui uma atmosfera equilibrada, rica em oxigênio, além de grande quantidade de água em estado líquido. Sua superfície é variada, com oceanos, continentes e climas diversos. Tem apenas uma lua.",
-        topics: ["Tipo: Rochoso", "Diâmetro: 12.742 km", "Temperaturas: -89°C (Mín) 56,7°C (Máx)", "Temperatura Média: 15°C", "Luas: 1 (a Lua)", "Curiosidade: Cerca de 70% da superfície da Terra é coberta por água, mas o planeta tem menos de 1% de água potável disponível na superfície."],
+        topics: ["Tipo: Rochoso", "Diâmetro: 12.742 km", "Temperaturas: -89°C (Mín) 56,7°C (Máx)", "Temperatura Média: 15°C", "Luas: 1 (a Lua de Luna ou Selene)", "Curiosidade: Cerca de 70% da superfície da Terra é coberta por água, mas o planeta tem menos de 1% de água potável disponível na superfície."],
         id: "Earth",
         type: "planet",
         min: 147.1,
