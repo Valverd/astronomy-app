@@ -1,13 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { Body, HelioVector } from "astronomy-engine";
 
-interface paramsProps {
-    params: {
-        planet: string
-    }
-}
-
-export async function GET(request: Request, { params }: paramsProps) {
+export async function GET(request: NextRequest, { params }: { params: {planet: string} }) {
     const { planet } = await params
     console.log(planet)
 
