@@ -80,7 +80,7 @@ export default function Astros3D({ planet }: { planet: string }) {
 
         if (planet == 'Saturn') {
             scene.add(rings)
-            camera.position.z = 4.6
+            camera.position.z = 4.9
 
         }
 
