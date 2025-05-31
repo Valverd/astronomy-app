@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { moon_and_planets } from "@/app/data/data";
 import { useState } from "react";
 import PlanetsBar from "./components/PlanetsBar";
@@ -47,7 +46,7 @@ export default function Home() {
             })}
           </ul>
         </div>
-        
+
         <Astros3D planet={planet.id} />
 
         <div className="hidden lg:flex flex-col p-4 h-full gap-4 justify-center rounded-full bg-bar backdrop-blur-xs shadow-bar">

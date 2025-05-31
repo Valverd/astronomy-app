@@ -3,15 +3,37 @@ import "./globals.css";
 import { Poppins } from 'next/font/google'
 import Nav from "@/app/components/Nav";
 import Footer from "./components/Footer";
+import Head from "next/head";
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
-  title: "AstroRange",
-  description: "Show the facts about the solar system and the planets distance.",
-};
+  title: 'Astro Range',
+  description: 'Explore informações do Sistema Solar, com visualizações em 3D dos Planetas.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    title: 'Sistema Solar',
+    description: 'Explore informações do Sistema Solar, com visualizações em 3D dos Planetas.',
+    url: 'https://astronomy-app-ten.vercel.app/',
+    siteName: 'AstroRange',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Logo do Site'
+      }
+    ],
+    type: 'website'
+  }
+}
 
 export default function RootLayout({
   children,
