@@ -15,8 +15,8 @@ export default function Nav() {
 
     return (
         <>
-            <nav className="bg-nav mb-16 py-2 h-[70px] px-6 z-40 backdrop-blur-md shadow-nav">
-                <div className="flex justify-between items-center max-w-[1440px] m-auto">
+            <nav className="bg-nav mb-16 h-[70px] z-40 backdrop-blur-md shadow-nav">
+                <div className="flex justify-between py-2 px-6 items-center max-w-[1440px] m-auto">
                     <Link href={'/'}>
                         <Image src={'/AstroRange.png'} alt="AstroRange" width={200} height={200} />
                     </Link>
