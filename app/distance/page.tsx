@@ -26,7 +26,7 @@ export default function Distance() {
 
     useEffect(() => {
         async function getPlanetData() {
-            await fetch(`http://localhost:3000/api/planet/${planet.id}`).then(res => res.json())
+            await fetch(`/api/planet/${planet.id}`).then(res => res.json())
                 .then((data) => {
                     setDistance(data)
                 })
