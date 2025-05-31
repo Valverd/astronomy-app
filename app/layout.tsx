@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Sistema Solar',
+    title: 'Astro Range',
     description: 'Explore informações do Sistema Solar, com visualizações em 3D dos Planetas.',
     url: 'https://astronomy-app-ten.vercel.app/',
     siteName: 'AstroRange',
