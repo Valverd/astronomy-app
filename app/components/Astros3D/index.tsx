@@ -130,5 +130,5 @@ export default function Astros3D({ planet }: { planet: string }) {
     }, [planet])
 
     // return <div ref={container} className='w-[50%] h-[300px] lg:w-[40%] lg:h-auto' />
-    return <div ref={container} className='w-[80%] h-[300px] md:h-[500px] lg:w-[50%] lg:h-auto' />
+    return <div ref={container} className='w-[90%] h-[400px] md:h-[500px] lg:w-[50%] lg:h-auto' />
 }
