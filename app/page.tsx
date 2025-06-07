@@ -35,11 +35,11 @@ export default function Home() {
           <p>{planet.description}</p>
           <ul>
             {planet.topics.map((item, i) => {
-              let topic_info = item.split(" ");
+              let topic_info = item.split(":");
               let topic_title = topic_info.shift();
               return (
                 <li className="my-2" key={i}>
-                  <span className="font-bold">{topic_title} </span>
+                  <span className="font-bold">{topic_title}: </span>
                   {topic_info.join(" ")}
                 </li>
               );
